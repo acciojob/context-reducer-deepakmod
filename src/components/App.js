@@ -22,7 +22,7 @@ const App = () => {
         <div>
             {userDetails.authenticated && <p id='current-user' >Current user:{userDetails.name}, isAuthenticated: {userDetails.authenticated}</p>}
             <button id='login-btn' onClick={()=>{setUserDetails({name:"rohan",authenticated:"Yes"})}} >Login</button>
-            <button id='signout' onClick={()=>{setUserDetails({name:"",authenticated:"No"})}} >Singout</button>
+            <button id='signout' onClick={()=>{setUserDetails({name:"",authenticated:"No"})}} >Signout</button>
             <input id='shopping-input' value={item} onChange={(e)=>{setItem(e.target.value)}} type='text' ></input>
             <button onClick={()=>{
                 setItem("");
@@ -33,7 +33,7 @@ const App = () => {
                 list.length > 0 && <ul>
                     {
                         list.map((item,index)=><li 
-                        id={`item-${item}`} >
+                        id={`item-${item}`} key={`item-${item}`} >
                             {item} 
                         <button id={`remove-${item}`} onClick={()=>{removeItem(index)}}  >Remove</button> 
                         </li>)
